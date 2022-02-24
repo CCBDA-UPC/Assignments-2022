@@ -53,7 +53,7 @@ Create a python code that uses the “random” library. Build a program in pyth
 
 If you are using PyCharm try to become familiar with the integrated debugger. You will need to debug your code in future sessions. On the top-right part of the IDE:
 
-<p align="center"><img src="./images/Lab01-PyCharmEditConfig.png " alt="Edit configuration" title="Edit configuration"/></p>
+<p align="center"><img src="./images/Lab01-PyCharmEditConfig.jpg " alt="Edit configuration" title="Edit configuration"/></p>
 
 Create a new configuration to run each Python Script:
 
