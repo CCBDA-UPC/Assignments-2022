@@ -35,6 +35,11 @@ Follow the instructions at https://developer.twitter.com/en/docs/platform-overvi
 
 Note that you need a Twitter account to log in, create an app, and get these credentials.
 
+# See some Python sample code here:
+
+https://github.com/twitterdev/Twitter-API-v2-sample-code
+
+
 <a name="Tasks"/>
 
 #  Tasks for Lab session #2
