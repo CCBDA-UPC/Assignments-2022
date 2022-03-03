@@ -29,7 +29,7 @@ To set up our Lab session #2 to be able to access Twitter data, there are some p
 
 There are four primary identifiers we need to have to start an OAuth workflow: consumer key, consumer secret, access token, and access token secret. Good news, from developer's perspective, is that the Python ecosystem has already well-established libraries for most social media platforms, which come with an implementation of that authentication process.
 
-Follow the instructions at https://developer.twitter.com/en/docs/api-reference-index to log-in to Twitter and enroll a new application.
+Follow the instructions at https://developer.twitter.com/en/docs/platform-overview to log-in to Twitter and enroll a new application.
 
 > **Warning**: these are application settings should always be kept private. Do not push the credentials to the git repository. You can use the environment variables, amongst other methods, to provide the configuration data to the applications.
 
