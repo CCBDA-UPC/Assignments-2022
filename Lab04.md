@@ -6,6 +6,11 @@ Array.from(javascript.links)
     .forEach(link => link.target = '_blank');
 </script>
 
+
+```javascript --run
+alert('Hello, World!');
+```
+
 This hands-on session is based on the [AWS Elastic Beanstalk tutorial](https://docs.aws.amazon.com/gettingstarted/latest/deploy/overview.html). Here, we are going to build a small web application using [Django](https://www.djangoproject.com/) which is a modern framework that uses Python to create web applications.
 
 ##  AWS IaaS: Elastic Beanstalk
