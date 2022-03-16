@@ -81,7 +81,7 @@ Create an IAM role and attach the policy to it.
 
 3. On the **AWS service** tab, select **EC2** service, and again **EC2** to allow EC2 instances to call AWS services on your behalf. Hit **Next:Permissions**.
 
-    <p align="center"><img src="./images/Lab04-1.png " alt="AWS service" title="AWS service"/></p>
+    <p align="center"><img src="./images/Lab04-1.png " alt="AWS service" title="AWS service" width="550"/></p>
 
 4. On the **Attach permissions policies** page, attach the following policies.
 
