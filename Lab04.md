@@ -86,7 +86,7 @@ Create an IAM role and attach the policy to it.
 4. On the **Attach permissions policies** page, attach the following policies.
 
     - **gsg-signup-policy** – The policy that you created earlier.
-    <p align="center"><img src="./images/Lab04-2.png " alt="gsg-signup-polic" title="gsg-signup-polic"/></p>
+    <p align="center"><img src="./images/Lab04-2.png " alt="gsg-signup-polic" title="gsg-signup-polic" width="550"/></p>
 
     - **AWSElasticBeanstalkWebTier** – Elastic Beanstalk provided role that allows the instances in your environment to upload logs to Amazon S3.
     <p align="center"><img src="./images/Lab04-3.png " alt="AWSElasticBeanstalkWebTier" title="AWSElasticBeanstalkWebTier"/></p>
