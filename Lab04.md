@@ -1,8 +1,10 @@
 # Lab session 4: Creating a web application using cloud PaaS
 
+```js script
 Array.from(javascript.links)
     .filter(link => link.hostname != window.location.hostname)
     .forEach(link => link.target = '_blank');
+```
 
 This hands-on session is based on the [AWS Elastic Beanstalk tutorial](https://docs.aws.amazon.com/gettingstarted/latest/deploy/overview.html). Here, we are going to build a small web application using [Django](https://www.djangoproject.com/) which is a modern framework that uses Python to create web applications.
 
