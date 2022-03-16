@@ -1,7 +1,7 @@
 # Lab session 4: Creating a web application using cloud PaaS
 
 This hands-on session is based on the [AWS Elastic Beanstalk tutorial](https://docs.aws.amazon.com/gettingstarted/latest/deploy/overview.html)
-<a href="https://docs.aws.amazon.com/gettingstarted/latest/deploy/overview.html">AWS Elastic Beanstalk tutorial</a>
+<a target="_blank" href="https://docs.aws.amazon.com/gettingstarted/latest/deploy/overview.html">AWS Elastic Beanstalk tutorial</a>
 
 . Here, we are going to build a small web application using [Django](https://www.djangoproject.com/) which is a modern framework that uses Python to create web applications.
 
