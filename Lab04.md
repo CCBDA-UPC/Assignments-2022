@@ -34,11 +34,10 @@ We are going to use **Amazon DynamoDB**, a NoSQL database service, to store the 
 You need to have `AWS CLI` and `AWS EB CLI` installed and configured. Please complete [Getting Started in the Cloud (with AWS)](https://github.com/CCBDA-UPC/Cloud-Computing-QuickStart/blob/master/Quick-Start-AWS.md) before beginning work on this assignment.
 
 * [Task 4.1: Download the repository for the Web App](#Tasks41)
-* [Task 4.2: Create an IAM Policy and Role](#Tasks42)
-* [Task 4.3: Create a DynamoDB Table](#Tasks43)
-* [Task 4.4: Test the web app locally](#Tasks44)
-* [Task 4.5: Create the AWS Beanstalk environment and deploy a sample web app](#Tasks45)
-* [Task 4.6: Configure Elastic Beanstalk CLI and deploy the target web app](#Tasks46)
+* [Task 4.2: Create a DynamoDB Table](#Tasks42)
+* [Task 4.3: Test the web app locally](#Tasks43)
+* [Task 4.4: Create the AWS Beanstalk environment and deploy a sample web app](#Tasks44)
+* [Task 4.5: Configure Elastic Beanstalk CLI and deploy the target web app](#Tasks45)
 
 
 <a name="Tasks41"/>
@@ -50,76 +49,10 @@ Prepare a new **private** repository in GitHub named `eb-django-express-signup` 
 
 **Do not mix** the repository containing the course answers with the repository that holds the changes to your web app.
 
+
 <a name="Tasks42"/>
 
-## Task 4.2: Create an IAM Policy, Role and User to run the application
-
-Next, you need to create a **IAM User** that will be granted with **only** the permissions that are strictly required to run your application. It is very important to grant the most restrictive set of permissions in case your application is compromised.
-The **IAM role** with an **IAM policy** that grants your web app permission to put items into your DynamoDB table. You will apply the role to the EC2 instances that run your application when you create an AWS Elastic Beanstalk environment.
-
-#### To create the IAM policy
-
-1. Open the [AWS Identity and Access Management (IAM) console](https://console.aws.amazon.com/iam).
-
-2. In the navigation pane, choose **Policies**.
-
-3. Choose **Create policy**.
-
-4. Next, select the **JSON** tab and paste the contents of the file `iam_policy.json` that you will find at the extra-file folder of the repository.
-
-5. For Policy Name, enter **gsg-signup-policy**.
-
-6. Choose **Create Policy**.
-
-Create an IAM role and attach the policy to it.
-
-#### To create the IAM role
-
-1. In the navigation pane, choose **Roles**.
-
-2. Choose **Create role**.
-
-3. On the **AWS service** tab, select **EC2** service, and again **EC2** to allow EC2 instances to call AWS services on your behalf. Hit **Next:Permissions**.
-
-    <p align="center"><img src="./images/Lab04-1.png " alt="AWS service" title="AWS service" width="550"/></p>
-
-4. On the **Attach permissions policies** page, attach the following policies.
-
-    - **gsg-signup-policy** – The policy that you created earlier.
-    <p align="center"><img src="./images/Lab04-2.png " alt="gsg-signup-polic" title="gsg-signup-polic" width="550"/></p>
-
-    - **AWSElasticBeanstalkWebTier** – Elastic Beanstalk provided role that allows the instances in your environment to upload logs to Amazon S3.
-    <p align="center"><img src="./images/Lab04-3.png " alt="AWSElasticBeanstalkWebTier" title="AWSElasticBeanstalkWebTier"/></p>
-
-    To locate policies quickly, type part of the policy name in the filter box. Select both policies and then choose **Next Step**.
-
-5. For Role name, enter **gsg-signup-role**.
-
-6. Choose **Create role**.
-
-For more information on permissions, see [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html) in the AWS Elastic Beanstalk Developer Guide.
-
-#### To create the IAM User
-
-1. In the navigation pane, choose **Users**.
-
-2. Choose **Add user**.
-
-3. As a user name enter **gsg-signup-user** and check *"Programmatic access"* as *Access type*.
-
-4. Choose **Next: Permissions**
-
-5. Select the pane *"Attach existing policies directly"*, find **"gsg-signup-policy"** and add a checkmark. Do the same with **AdministratorAccess-AWSElasticBeanstalk**.
-
-6. Choose **Next: Tags** and **Next: Review** where you should be seeing that your new user has programmatic access and it's attached to the previously selected managed policies.
-
-7. Choose **Create user**
-
-8. Copy the values of **Access key ID** and **Secret access key** or use **Download .csv** and save it in a safe place.
-
-<a name="Tasks43"/>
-
-## Task 4.3: Create a DynamoDB Table
+## Task 4.2: Create a DynamoDB Table
 Our signup app uses a DynamoDB table to store the contact information that users submit.
 
 #### To create a DynamoDB table
@@ -134,9 +67,9 @@ Our signup app uses a DynamoDB table to store the contact information that users
 
 5. For the `Primary key`, type `email`. Choose **Create**.
 
-<a name="Tasks44"/>
+<a name="Tasks43"/>
 
-## Task 4.4: Test the web app locally
+## Task 4.3: Test the web app locally
 
 Once you are inside the directory of the project issue the following commands to setup the configuration of the project using the process environment variables:
 
@@ -200,9 +133,9 @@ That Python virtual environment is re-created remotely by Elastic Beanstalk thro
 
 <p align="center"><img src="./images/Lab01-AnacondaTerminal.png" alt="Terminal" title="Terminal"/></p>
 
-<a name="Tasks45"/>
+<a name="Tasks44"/>
 
-## Task 4.5: Create the AWS Beanstalk environment and deploy the sample web app
+## Task 4.4: Create the AWS Beanstalk environment and deploy the sample web app
 
 ### Prepare some configuration for AWS Beanstalk
 
@@ -210,7 +143,7 @@ At the repository, you already have a `requirements.txt` file that lets AWS Bean
 
 ```
 _$ source ../eb-virt/bin/activate
-(eb-virt)_$ pip freeze > requirements.txt
+(eb-virt)_$ pip list --format=freeze > requirements.txt
 (eb-virt)_$ deactivate
 ```
 
@@ -281,9 +214,9 @@ Once the site is up and running, at any time, you can deploy a new version of yo
 
 Good job! We are almost there. You can now "Terminate environment" at the "Actions" dropdown menu.
 
-<a name="Tasks46"/>
+<a name="Tasks45"/>
 
-## Task 4.6: Configure Elastic Beanstalk CLI and deploy the target web app
+## Task 4.5: Configure Elastic Beanstalk CLI and deploy the target web app
 
 At this point, we have the sample web app deployed. AWS EB CLI can, alternatively, help us to transfer and install our web app to the cloud. 
 
@@ -332,7 +265,7 @@ global:
   application_name: eb-django-express-signup
   branch: null
   default_ec2_keyname: ccbda_upc
-  default_platform: Python 3.6 running on 64bit Amazon Linux
+  default_platform: Python 3.8 running on 64bit Amazon Linux 2
   default_region: eu-west-1
   include_git_submodules: true
   instance_profile: null
@@ -343,8 +276,6 @@ global:
   sc: git
   workspace_type: Application
 ```
-
-
 
 
 To create the resources required to run the application and upload the application code we need to type the following command, using the parameter `--service-role` to grant the role's permissions to the EC2s running the code.
