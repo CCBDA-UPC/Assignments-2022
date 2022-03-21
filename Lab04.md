@@ -34,8 +34,8 @@ We are going to use **Amazon DynamoDB**, a NoSQL database service, to store the 
 You need to have `AWS CLI` and `AWS EB CLI` installed and configured. Please complete [Getting Started in the Cloud (with AWS)](https://github.com/CCBDA-UPC/Cloud-Computing-QuickStart/blob/master/Quick-Start-AWS.md) before beginning work on this assignment.
 
 * [Task 4.1: Download the repository for the Web App](#Tasks41)
-* [Task 4.2: Create an IAM Policy and Role](#Tasks42)
-* [Task 4.3: Create a DynamoDB Table](#Tasks43)
+* [Task 4.2: Create a DynamoDB Table](#Tasks42)
+* [Task 4.3: Create an IAM Policy and Role to run the application](#Tasks43)
 * [Task 4.4: Test the web app locally](#Tasks44)
 * [Task 4.5: Create the AWS Beanstalk environment and deploy a sample web app](#Tasks45)
 * [Task 4.6: Configure Elastic Beanstalk CLI and deploy the target web app](#Tasks46)
@@ -50,12 +50,27 @@ Prepare a new **private** repository in GitHub named `eb-django-express-signup` 
 
 **Do not mix** the repository containing the course answers with the repository that holds the changes to your web app.
 
-
 <a name="Tasks42"/>
 
-## Task 4.2: Create an IAM Policy, Role and User to run the application
+## Task 4.2: Create a DynamoDB Table
+Our signup app uses a DynamoDB table to store the contact information that users submit.
 
-Next, you need to create a **IAM User** that will be granted with **only** the permissions that are strictly required to run your application. It is very important to grant the most restrictive set of permissions in case your application is compromised.
+#### To create a DynamoDB table
+
+1. Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/home](https://console.aws.amazon.com/dynamodb/home).
+
+2. In the menu bar, ensure that the region is set to **Ireland**.
+
+3. Choose **Create table**.
+
+4. For Table name, type **gsg-signup-table**.
+
+5. For the `Primary key`, type `email`. Choose **Create**.
+
+<a name="Tasks43"/>
+
+## Task 4.3: Create an IAM Policy and Role to run the application
+
 The **IAM role** with an **IAM policy** that grants your web app permission to put items into your DynamoDB table. You will apply the role to the EC2 instances that run your application when you create an AWS Elastic Beanstalk environment.
 
 #### To create the IAM policy
@@ -117,24 +132,7 @@ For more information on permissions, see [http://docs.aws.amazon.com/elasticbean
 7. Choose **Create user**
 
 8. Copy the values of **Access key ID** and **Secret access key** or use **Download .csv** and save it in a safe place.
-
-<a name="Tasks43"/>
-
-## Task 4.3: Create a DynamoDB Table
-Our signup app uses a DynamoDB table to store the contact information that users submit.
-
-#### To create a DynamoDB table
-
-1. Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/home](https://console.aws.amazon.com/dynamodb/home).
-
-2. In the menu bar, ensure that the region is set to **Ireland**.
-
-3. Choose **Create table**.
-
-4. For Table name, type **gsg-signup-table**.
-
-5. For the `Primary key`, type `email`. Choose **Create**.
-
+9. 
 <a name="Tasks44"/>
 
 ## Task 4.4: Test the web app locally
@@ -206,6 +204,8 @@ That Python virtual environment is re-created remotely by Elastic Beanstalk thro
 ## Task 4.5: Create the AWS Beanstalk environment and deploy the sample web app
 
 ### Prepare some configuration for AWS Beanstalk
+
+Next, you need to create a **IAM User** that will be granted with **only** the permissions that are strictly required to run your application. It is very important to grant the most restrictive set of permissions in case your application is compromised.
 
 At the repository, you already have a `requirements.txt` file that lets AWS Beanstalk know which Python modules your web app needs. As you advance in this hands-on, you are going to install more Python modules, and you need to update `requirements.txt`. Please note that you first need to switch to the virtual environment to update the file.
 
