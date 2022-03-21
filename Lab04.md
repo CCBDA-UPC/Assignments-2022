@@ -210,7 +210,7 @@ We are creating a new Python virtual environment locally only to keep the packag
 
 That Python virtual environment is re-created remotely by Elastic Beanstalk through the use of the file *requirements.txt* and other configuration that you are going to set up later. 
 
-**NOTE II**: PyCharm provides a 
+**NOTE II**: PyCharm provides a way to store and provide the environment variables for each execution.
 
 <p align="center"><img src="./images/Lab04-pycharm-config.png" alt="AWS service" title="AWS service" width="550"/></p>
 
