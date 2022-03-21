@@ -33,7 +33,7 @@ We are going to use **Amazon DynamoDB**, a NoSQL database service, to store the 
 ## Prerequisites
 You need to have `AWS CLI` and `AWS EB CLI` installed and configured. Please complete [Getting Started in the Cloud (with AWS)](https://github.com/CCBDA-UPC/Cloud-Computing-QuickStart/blob/master/Quick-Start-AWS.md) before beginning work on this assignment.
 
-* [Task 4.1: Download the repository for the Web App](#Tasks41)
+* [Task 4.1: Download the code for the Web App](#Tasks41)
 * [Task 4.2: Create a DynamoDB Table](#Tasks42)
 * [Task 4.3: Create an IAM Policy and Role to run the application](#Tasks43)
 * [Task 4.4: Test the web app locally](#Tasks44)
@@ -43,8 +43,8 @@ You need to have `AWS CLI` and `AWS EB CLI` installed and configured. Please com
 
 <a name="Tasks41"/>
 
-## Task 4.1: Download the repository for the Web App
-You are going to make a few changes to the base Python code. Therefore, download the repository on your local disk drive as a zip file from *https://github.com/CCBDA-UPC/eb-django-express-signup-base*. Unzip the file and change the name of the folder to *eb-django-express-signup*.
+## Task 4.1: Download the code for the Web App
+You are going to make a few changes to the base Python code. Therefore, download the repository on your local disk drive as a *[zip file](eb-signup.zip)*. Unzip the file and change the name of the folder to *eb-django-express-signup*.
 
 Prepare a new **private** repository in GitHub named `eb-django-express-signup` to commit all the changes to your code. Invite `angeltoribio-UPC-BCN` to your new remote private repository as a collaborator.
 
