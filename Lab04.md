@@ -175,6 +175,8 @@ _$ source extra-files/environment.sh
 
 Next, create a **new Python 3.x virtual environment** specially for this web app and install the packages required to run it. (**MS-Windows OS** users read the note at the end of this section)
 
+Check the contents of the file **requirements.txt** that the web application declares as the set of Python packages, and its version, that it requires to be executed successfully.
+
 The package `boto3` is a library that hides de AWS REST API to the programmer and manages the communication between the web app and all the AWS services. Check [**Boto 3 Documentation**](https://boto3.readthedocs.io/en/latest/reference/services/index.html) for more details.
 
 Please, note the different prompt **(eb-virt)_$** vs. **_$** when you are inside and outside of the new Python virtual environment.
@@ -182,8 +184,7 @@ Please, note the different prompt **(eb-virt)_$** vs. **_$** when you are inside
 ```
 _$ virtualenv -p python3 ../eb-virt
 _$ source ../eb-virt/bin/activate
-(eb-virt)_$ pip install django
-(eb-virt)_$ pip install boto3
+(eb-virt)_$ pip install -r requirements.txt
 ```
 
 You will now need to run a local testing server.
@@ -209,10 +210,9 @@ We are creating a new Python virtual environment locally only to keep the packag
 
 That Python virtual environment is re-created remotely by Elastic Beanstalk through the use of the file *requirements.txt* and other configuration that you are going to set up later. 
 
-**NOTE II**: If you are using an **MS-Windows OS** you might want to type the above commands in the Anaconda Terminal Window of the CCBDA Python environment. Make sure that "virtualenv" package is installed in that environment if you obtain a "command not found" error.
+**NOTE II**: PyCharm provides a 
 
-
-<p align="center"><img src="./images/Lab01-AnacondaTerminal.png" alt="Terminal" title="Terminal"/></p>
+<p align="center"><img src="./images/Lab04-pycharm-config.png" alt="AWS service" title="AWS service" width="550"/></p>
 
 <a name="Tasks45"/>
 
