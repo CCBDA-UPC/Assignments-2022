@@ -71,7 +71,9 @@ Our signup app uses a DynamoDB table to store the contact information that users
 
 ## Task 4.3: Create an IAM Policy and Role to run the application
 
-The **IAM role** with an **IAM policy** that grants your web app permission to put items into your DynamoDB table. You will apply the role to the EC2 instances that run your application when you create an AWS Elastic Beanstalk environment.
+You are highly recommended to create a specific user for each application that you run at AWS. Of course, such users would need to have as little access to resources as possible.
+
+The application you are about to test locally will access a DynamoDB table located at AWS. Therefore, let's create a user for that specific purpose.
 
 #### To create the IAM policy
 
@@ -81,11 +83,24 @@ The **IAM role** with an **IAM policy** that grants your web app permission to p
 
 3. Choose **Create policy**.
 
-4. Next, select the **JSON** tab and paste the contents of the file `iam_policy.json` that you will find at the extra-file folder of the repository.
+4. Next, select the **JSON** tab and paste the contents of the box below.
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "dynamodb:PutItem",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-5. For Policy Name, enter **gsg-signup-policy**.
+6. For Policy Name, enter **gsg-signup-policy**.
 
-6. Choose **Create Policy**.
+7. Choose **Create Policy**.
 
 Create an IAM role and attach the policy to it.
 
@@ -105,34 +120,34 @@ Create an IAM role and attach the policy to it.
     <p align="center"><img src="./images/Lab04-2.png " alt="gsg-signup-polic" title="gsg-signup-polic" width="550"/></p>
 
     - **AWSElasticBeanstalkWebTier** – Elastic Beanstalk provided role that allows the instances in your environment to upload logs to Amazon S3.
-    <p align="center"><img src="./images/Lab04-3.png " alt="AWSElasticBeanstalkWebTier" title="AWSElasticBeanstalkWebTier"/></p>
-
+    
     To locate policies quickly, type part of the policy name in the filter box. Select both policies and then choose **Next Step**.
 
 5. For Role name, enter **gsg-signup-role**.
 
 6. Choose **Create role**.
 
-For more information on permissions, see [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html) in the AWS Elastic Beanstalk Developer Guide.
-
 #### To create the IAM User
 
-1. In the navigation pane, choose **Users**.
+1.  In the navigation pane, choose **Users**.
 
 2. Choose **Add user**.
 
-3. As a user name enter **gsg-signup-user** and check *"Programmatic access"* as *Access type*.
+3. As a user name enter **gsg-signup-user** and check *"Access key - Programmatic access"* as *credential type*.
 
 4. Choose **Next: Permissions**
 
-5. Select the pane *"Attach existing policies directly"*, find **"gsg-signup-policy"** and add a checkmark. Do the same with **AdministratorAccess-AWSElasticBeanstalk**.
+5. Select the pane *"Attach existing policies directly"*, find **gsg-signup-policy** and add a checkmark.
 
 6. Choose **Next: Tags** and **Next: Review** where you should be seeing that your new user has programmatic access and it's attached to the previously selected managed policies.
 
 7. Choose **Create user**
 
 8. Copy the values of **Access key ID** and **Secret access key** or use **Download .csv** and save it in a safe place.
-9. 
+
+For more information on permissions, see [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html) in the AWS Elastic Beanstalk Developer Guide.
+
+
 <a name="Tasks44"/>
 
 ## Task 4.4: Test the web app locally
