@@ -277,9 +277,7 @@ Once you see the following status, you can click on the URL field (next to the `
 
 <p align="center"><img src="./images/Lab04-8.png " alt="OK" title="OK"/></p>
 
-A new tab will open showing:
-
-<p align="center"><img src="./images/Lab04-9.png " alt="Sample web app" title="Sample web app"/></p>
+A new tab will open showing the application working in the cloud.
 
 Once the site is up and running, at any time, you can deploy a new version of your application code to the cloud environment.
 
