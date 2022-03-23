@@ -170,10 +170,10 @@ You can also type in the command line (make sure the above values have been repl
 _$ source extra-files/environment.sh
 ```
 
-**DO NOT PUSH THE AWS CREDENTIALS TO YOUR PRIVATE REPOSITORY !!!**
+**DO NOT EVER PUSH AWS CREDENTIALS TO YOUR PRIVATE REPOSITORY !!!**
 
 
-Next, create a **new Python 3.x virtual environment** specially for this web app and install the packages required to run it. (**MS-Windows OS** users read the note at the end of this section)
+Next, create a **new Python 3.8 virtual environment** specially for this web app and install the packages required to run it. (**MS-Windows OS** users read the note at the end of this section)
 
 Check the contents of the file **requirements.txt** that the web application declares as the set of Python packages, and its version, that it requires to be executed successfully.
 
@@ -210,7 +210,7 @@ We are creating a new Python virtual environment locally only to keep the packag
 
 That Python virtual environment is re-created remotely by Elastic Beanstalk through the use of the file *requirements.txt* and other configuration that you are going to set up later. 
 
-**NOTE II**: PyCharm provides a way to store and provide the environment variables for each execution.
+**NOTE II**: PyCharm provides a way to store and provide the environment variables for each execution. Besides, using PyCharm **you will be able to debug your code easily**.
 
 <p align="center"><img src="./images/Lab04-pycharm-config.png" alt="AWS service" title="AWS service" width="550"/></p>
 
@@ -220,8 +220,6 @@ That Python virtual environment is re-created remotely by Elastic Beanstalk thro
 
 ### Prepare some configuration for AWS Beanstalk
 
-Next, you need to create a **IAM User** that will be granted with **only** the permissions that are strictly required to run your application. It is very important to grant the most restrictive set of permissions in case your application is compromised.
-
 At the repository, you already have a `requirements.txt` file that lets AWS Beanstalk know which Python modules your web app needs. As you advance in this hands-on, you are going to install more Python modules, and you need to update `requirements.txt`. Please note that you first need to switch to the virtual environment to update the file.
 
 ```
@@ -230,7 +228,7 @@ _$ source ../eb-virt/bin/activate
 (eb-virt)_$ deactivate
 ```
 
-The Beanstalk environment uses this command to install the exact version of packages that our web app needs.
+The Beanstalk environment uses the following command to install the exact version of packages that our web app needs.
 
 ```
 (eb-virt)_$ pip install -r requirements.txt
