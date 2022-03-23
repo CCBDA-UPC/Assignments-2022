@@ -244,39 +244,29 @@ Open the Elastic Beanstalk console using this preconfigured link: [https://conso
 
 2. For *Domain*, leave it blank to get a random host name (i.e., gsgSignup-d6rrp-env). Alternatively, you can type a host name that you like better, if it is available. The URL we are going to use to access the project will be something like: `http://gsgSignup-d6rrp-env.eu-west-1.elasticbeanstalk.com/`.
 
-3. For *Platform*, choose *Preconfigured platform* and select **Preconfigured Python**. **DO NOT SELECT** *Preconfigured - Docker - Python*.
+3. For *Platform*, choose *Python* and  **Python 3.8**.
 
-4. For *Application code*, select **Sample application** and click at **Review and launch**.
+4. For *Application code*, select **Upload your code** and select **Local file** choosing the zip file that you've previously downloaded. Then click **Review and Launch**.
 
-5. In the next screen, find the box named **Capacity** click *Modify* and 
+5. In the next screen, find the box named **Software** click *Edit* and find the *Environment properties* where you'll need to add your environment variables.
+- DEBUG=True
+- STARTUP_SIGNUP_TABLE=gsg-signup-table
+- AWS_REGION=eu-west-1
+- AWS_ACCESS_KEY_ID=<YOUR-ACCESS-KEY-ID>
+- AWS_SECRET_ACCESS_KEY=<YOUR-SECRET-ACCESS-KEY>
+- click **Save**.
 
-- select a `t2.nano` Instance type (the smallest EC2 instance that you can pick. Consider t2.micro if you have free tier available).  Click **Save**.
-
-- select "Load balanced" as "Environment type" and select a minimum of 1 instance and a maximum of 2 instances.
-
-6. Back in the boxes screen find the one named **Security** click *Modify* and 
+6. Back in the boxes screen find the one named **Security** click *Edit* and 
 
 - select a *EC2 key pair* that you have access to (if you don't have any keypair you will not be able to access the EC2 instances that Elastic Beanstalk creates.)
-- for *Service role* select the value **aws-elasticbeanstalk-service-role**. If you can't find **aws-elasticbeanstalk-service-role** you can create it by going to the IAM console, open the Roles page. Choose aws-elasticbeanstalk-service-role.
-
-    * On the Permissions tab, choose Attach policies.
-        
-    * Enter *AWSElasticBeanstalk* to filter the policies.
-        
-    * Select the following policies, and then choose Attach policy:
-        
-        * *AWSElasticBeanstalkEnhancedHealth*
-        
-        * *AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy* 
 - click **Save**.
  
 7. Back in the boxes screen find the one named **Notifications** and type your e-mail address to receive notifications regarding the environment that you are launching. Click **Save**.
 
 8. Back in the boxes screen find the one named **Network** and 
 
-- select **eu-west-1a** and **eu-west-1b** in *Load balancer subnets* and *Instance subnets*. 
-- check *Public IP address* to be able to access the app from the outside. 
-- click **Next**.
+- select **eu-west-1a** and **eu-west-1b** in *Load balancer settings* and *Instance settings*. 
+- click **Save**.
 
 
 9. Review all the settings and click **Create app**.
