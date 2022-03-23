@@ -273,7 +273,7 @@ Open the Elastic Beanstalk console using this preconfigured link: [https://conso
 
 In just a few minutes, Elastic Beanstalk provisions the networking, storage, compute and monitoring infrastructure required to run a scalable web application in AWS.
 
-Once you see the following status, you can click on the URL field (next to the `Actions` button at the top right corner of the browser window).
+Once you see the following status, you can click on the URL field under the environment name.
 
 <p align="center"><img src="./images/Lab04-8.png " alt="OK" title="OK"/></p>
 
@@ -289,12 +289,14 @@ Good job! We are almost there. You can now "Terminate environment" at the "Actio
 
 At this point, we have the sample web app deployed. AWS EB CLI can, alternatively, help us to transfer and install our web app to the cloud. 
 
+If you have configured "aws" command line interface you probably have a `$HOME/.aws/config` file that contains the credentials of your root account. Please create a new AWS user that has only the necessary set of permissions to run ElasticBeanstalk CLI and set the eb CLI up accordingly.
+
 You can find more information on  [**eb** command line interface](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-getting-started.html).
 
 Go to your terminal window and write:
 
 ```
-_$ eb init
+_$ eb init -i
 Select a default region
 ...
 4) eu-west-1 : EU (Ireland)
@@ -314,10 +316,10 @@ It appears you are using Python. Is this correct?
 (Y/n): y
 
 Select a platform version.
-1) Python 3.6
+1) Python 3.8
 ...
 (default is 1): 1
-Do you wish to continue with CodeCommit? (y/N) (default is n): n
+Do you wish to continue with CodeCommit? (y/N): n
 Do you want to set up SSH for your instances?
 (Y/n): n
 ```
@@ -370,16 +372,16 @@ Environment details for: eb-django-express-signup
   CNAME: eb-django-ccbda.eu-west-1.elasticbeanstalk.com
   Updated: 2020-03-10 21:44:32.529000+00:00
 Printing Status:
-2020-03-10 21:44:31    INFO    createEnvironment is starting.
-2020-03-10 21:44:32    INFO    Using elasticbeanstalk-eu-west-1-468331866415 as Amazon S3 storage bucket for environment data.
-2020-03-10 21:44:55    INFO    Created load balancer named: awseb-e-r-AWSEBLoa-1K9ZK4E68LYD1
-2020-03-10 21:45:11    INFO    Created security group named: awseb-e-rduyfzjegp-stack-AWSEBSecurityGroup-4AZMXHN8NEN3
-2020-03-10 21:45:11    INFO    Created Auto Scaling launch configuration named: awseb-e-rduyfzjegp-stack-AWSEBAutoScalingLaunchConfiguration-TYFNTTWETJIU
-2020-03-10 21:46:28    INFO    Created Auto Scaling group named: awseb-e-rduyfzjegp-stack-AWSEBAutoScalingGroup-25JLWUN93G2
-2020-03-10 21:46:28    INFO    Waiting for EC2 instances to launch. This may take a few minutes.
+2022-03-10 21:44:31    INFO    createEnvironment is starting.
+2022-03-10 21:44:32    INFO    Using elasticbeanstalk-eu-west-1-468331866415 as Amazon S3 storage bucket for environment data.
+2022-03-10 21:44:55    INFO    Created load balancer named: awseb-e-r-AWSEBLoa-1K9ZK4E68LYD1
+2022-03-10 21:45:11    INFO    Created security group named: awseb-e-rduyfzjegp-stack-AWSEBSecurityGroup-4AZMXHN8NEN3
+2022-03-10 21:45:11    INFO    Created Auto Scaling launch configuration named: awseb-e-rduyfzjegp-stack-AWSEBAutoScalingLaunchConfiguration-TYFNTTWETJIU
+2022-03-10 21:46:28    INFO    Created Auto Scaling group named: awseb-e-rduyfzjegp-stack-AWSEBAutoScalingGroup-25JLWUN93G2
+2022-03-10 21:46:28    INFO    Waiting for EC2 instances to launch. This may take a few minutes.
 .........
-2020-03-10 21:47:31    INFO    Application available at eb-django-ccbda.eu-west-1.elasticbeanstalk.com.
-2020-03-1o 21:47:31    INFO    Successfully launched environment: eb-django-express-signup
+2022-03-10 21:47:31    INFO    Application available at eb-django-ccbda.eu-west-1.elasticbeanstalk.com.
+2022-03-1o 21:47:31    INFO    Successfully launched environment: eb-django-express-signup
 
 ```
 
