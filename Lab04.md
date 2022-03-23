@@ -23,7 +23,7 @@ We are going to assume that you are working on a new subject on Cloud Computing 
 ### The Signup App
 The app will allow your future students to submit contact information and express interest in a preview of the new subject on Cloud Computing that you're developing.
 
-To make the app look good, we use Bootstrap, a mobile-first front-end framework that started as a Twitter project.
+To make the app look good, we use [Bootstrap](https://getbootstrap.com/), a mobile-first front-end framework that started as a Twitter project.
 
 ### Amazon DynamoDB
 We are going to use **Amazon DynamoDB**, a NoSQL database service, to store the contact information that users submit. DynamoDB is a schema-less database, so you need to specify only a primary key attribute. Let us use the email field as a key for each register.
