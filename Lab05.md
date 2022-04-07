@@ -117,7 +117,7 @@ Do not forget that before testing the new functionality you need to have the AWS
 Add the *unique identifier* for the AWS SNS topic to the configuration environment of your local deployment.
 
 ```bash
-_$ export NEW_SIGNUP_TOPIC="arn:aws:sns:eu-west-1:YOUR-INSTANCE-NUMBER:gsg-signup-notifications"
+_$ export NEW_SIGNUP_TOPIC="arn:aws:sns:eu-west-1:YOUR-ACCOUNT-ID:gsg-signup-notifications"
 ```
 
 Before you forget, you can also add a new variable to the environment of the Elastic Beanstalk deployment.
@@ -172,7 +172,7 @@ Now you can see that the new record appears inserted but when you try to add a n
 "GET / HTTP/1.1" 200 7456
 New item added to database.
 Error sending AWS SNS message: An error occurred (AuthorizationError) when calling the Publish operation:
-  User: arn:aws:iam::YOUR-USER-NUMBER:root is not authorized to perform: SNS:Publish on resource: arn:aws:sns:eu-west-1:YOUR-INSTANCE-NUMBER:gsg-signup-notifications
+  User: arn:aws:iam::YOUR-USER-NUMBER:root is not authorized to perform: SNS:Publish on resource: arn:aws:sns:eu-west-1:YOUR-ACCOUNT-ID:gsg-signup-notifications
 "POST /signup HTTP/1.1" 200 0
 ```
 
