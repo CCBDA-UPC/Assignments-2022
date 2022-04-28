@@ -66,7 +66,6 @@ Open data is data that is openly accessible, exploitable, editable and shared by
 Some data should be freely available to everyone to use and republish as they wish, without restrictions from copyright, patents or other mechanisms of control. The goals of the open-source data movement are similar to those of other "open(-source)" movements such as open-source software, hardware, open content, open specifications, open education, open educational resources, open government, open knowledge, open access, open science, and the open web. 
 
 One of the most important forms of open data is open government data (OGD), which is a form of open data created by ruling government institutions. Open government data's importance is born from it being a part of citizens' everyday lives, down to the most routine/mundane tasks that are seemingly far removed from government. You can check what's available by the governments of [Spain](https://datos.gob.es/en), [United States of America](https://data.gov/) or [United Kigdom of the Great Britan](https://data.gov.uk/), amongst others.
-)
 
 You can also find some [addtional Open Data sources](https://www.freecodecamp.org/news/https-medium-freecodecamp-org-best-free-open-data-sources-anyone-can-use-a65b514b0f2d/).
 
